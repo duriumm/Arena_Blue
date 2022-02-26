@@ -335,6 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6131898841330053267}
   - component: {fileID: 6865236394068841924}
+  - component: {fileID: 8188654454313470039}
   m_Layer: 0
   m_Name: Down_Sweep_Collider
   m_TagString: Sweep
@@ -387,3 +388,24 @@ PolygonCollider2D:
       - {x: -0.48593277, y: -0.80901706}
       - {x: 0.6750885, y: -0.77264094}
       - {x: 0.6454992, y: -0.33120924}
+--- !u!50 &8188654454313470039
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7985704660708825546}
+  m_BodyType: 1
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

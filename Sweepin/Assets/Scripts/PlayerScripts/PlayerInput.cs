@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerInput : MonoBehaviour
 {
     private PlayerSweeping playerSweeping;
+
 
     public void Start()
     {
@@ -20,6 +22,8 @@ public class PlayerInput : MonoBehaviour
         {
             // TODO - Rename this function maybe..??
             playerSweeping.Sweep();
+
+
 
         }
     }
