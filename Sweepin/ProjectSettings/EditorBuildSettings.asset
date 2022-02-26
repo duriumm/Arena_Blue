@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Micke/SampleSceneM.unity
+    guid: 2f35ec18e5ab5684795385a4c820f2b2
+  - enabled: 1
+    path: Assets/Scenes/Micke/IndoorsM.unity
+    guid: 0f1a44b5f4b486241bbf750df6bfd083
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Indoors.unity
+    guid: eee16fa9e0358a7448472752ff50ae28
+  - enabled: 1
+    path: Assets/Scenes/Lasse/Indoors_Lasse.unity
+    guid: 9a6be3cbe69ee5345b7dd0d2df8540d1
+  - enabled: 1
+    path: Assets/Scenes/Lasse/First_Level_Lasse.unity
+    guid: da8c3452e79cc254e90d5093ef0e8033
+  m_configObjects: {}

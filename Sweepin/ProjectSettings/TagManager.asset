@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - MyPlayer
+  - Spikes
+  - MyPlayerAttackCollider
+  - MyPlayerInterractionCollider
+  - LootableItem
+  - InventoryManager
+  - Enemy
+  - Canvas
+  - PassData
+  - damageCollider
+  - Npc
+  - VCam
+  - AudioManager
+  - GrassTile
+  - Tile
+  - Dirty_Tile
+  - Sweep
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Obstacles
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Behind main
+    uniqueID: 2461372523
+    locked: 0
+  - name: Main ground objects
+    uniqueID: 448646053
+    locked: 0
+  - name: In front of main
+    uniqueID: 3837918583
+    locked: 0
