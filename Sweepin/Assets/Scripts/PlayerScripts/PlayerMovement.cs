@@ -41,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
             animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
         }
-
-
         animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
@@ -64,5 +62,14 @@ public class PlayerMovement : MonoBehaviour
     public void TriggerFootstepCollider()
     {
         audioManager.TurnOffThenOnAudioFootstepCollider();
+    }
+
+    public float GetLastMoveXdirection()
+    {
+        return animator.GetFloat("LastMoveX");
+    }
+    public float GetLastMoveYdirection()
+    {
+        return animator.GetFloat("LastMoveY");
     }
 }
