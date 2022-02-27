@@ -42,12 +42,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
         }
 
-        // Dont delete this, it will be used for equipment later on
-        //bootsAnimator.SetFloat("Horizontal", movement.x);             // Use when equipment is being added
-        //bootsAnimator.SetFloat("Vertical", movement.y);               // Use when equipment is being added
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
-        //bootsAnimator.SetFloat("Speed", movement.sqrMagnitude/* * bootsSpeedGang*/);      // Use when equipment is being added
     }
 
     private void FixedUpdate()
