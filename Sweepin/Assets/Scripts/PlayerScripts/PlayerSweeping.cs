@@ -21,8 +21,8 @@ public class PlayerSweeping : MonoBehaviour
 
     void Start()
     {
-        broomGameObj = this.gameObject.transform.Find("Broom").gameObject;
-        sweepingAnimator = this.gameObject.transform.Find("Broom").gameObject.GetComponent<Animator>();
+        broomGameObj = this.gameObject.transform.Find("BroomPosition").Find("Broom").gameObject;
+        sweepingAnimator = broomGameObj.GetComponent<Animator>();
         playerAnimator = this.gameObject.GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
@@ -72,7 +72,7 @@ public class PlayerSweeping : MonoBehaviour
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // TODO: Fix this below, doesnt work cos of animation using a specific position
-        //broomGameObj.transform.localPosition = mousePos;
+
 
         Vector3 playerPreferedPosition = this.gameObject.transform.position;
         playerPreferedPosition.y = playerPreferedPosition.y - 0.4f;
@@ -98,6 +98,12 @@ public class PlayerSweeping : MonoBehaviour
 
         Vector2 mousePos2D = mousePos;
         sweepingAreaObj.transform.position = mousePos2D;
+
+        //broomGameObj.transform.parent.position = mousePos2D;
+
+        Vector2 broomObjPosition = mousePos2D;
+        broomObjPosition.y = broomObjPosition.y + 1; // This sets the broom to be higher (y) than the mouse so we can see what we are sweeping
+        broomGameObj.transform.parent.position = broomObjPosition;
 
 
         Vector3 aboveMousePos = mousePos;

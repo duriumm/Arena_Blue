@@ -103345,6 +103345,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2919104689247000669, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3932058778099558999, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: m_Color.b
       value: 0.9622642
@@ -103412,6 +103416,10 @@ PrefabInstance:
     - target: {fileID: 8048810084543685517, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092997005210435568, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8620282104999495127, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: playerHealth
