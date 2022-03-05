@@ -13,14 +13,25 @@ public class PlayerSweeping : MonoBehaviour
     private GameObject dirtTilemapGameobject;
     private Tilemap dirtTilemap;
     private Grid dirtGrid;
-    private GameObject sweepingAreaObj;
     private SpriteRenderer sweepingSprite;
-    private Color sweepColor;
     private GameObject broomGameObj;
+    private Vector3 mousePos;
+    private Vector2 mousePos2D;
+    private Vector2 broomObjPosition;
+    private MouseHovering mouseHovering;
+
+
+    private bool isInsideSweepingRadius;
+
+    private bool hasStoppedSweepingAnimOnce = false;
+
+    private bool isMouseButtonHeldDown = false;
+    
 
 
     void Start()
     {
+        mouseHovering = this.gameObject.GetComponent<MouseHovering>();
         broomGameObj = this.gameObject.transform.Find("BroomPosition").Find("Broom").gameObject;
         sweepingAnimator = broomGameObj.GetComponent<Animator>();
         playerAnimator = this.gameObject.GetComponent<Animator>();
@@ -31,9 +42,6 @@ public class PlayerSweeping : MonoBehaviour
         dirtTilemap = dirtTilemapGameobject.GetComponent<Tilemap>();
         dirtGrid = GameObject.Find("Dirty Tiles").GetComponent<Grid>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
-        sweepingAreaObj = gameObject.transform.Find("Colliders").transform.Find("Sweeparea").gameObject;
-        sweepingSprite = sweepingAreaObj.GetComponent<SpriteRenderer>();
-        sweepingSprite.color = Color.green;
 
     }
 
@@ -46,6 +54,10 @@ public class PlayerSweeping : MonoBehaviour
 
     public void PlaySweepAnimation()
     {
+        if (!isInsideSweepingRadius)
+        {
+            return;
+        }
         // Disable movement
         playerMovement.enabled = false;
         rb.simulated = false;
@@ -54,57 +66,45 @@ public class PlayerSweeping : MonoBehaviour
         sweepingAnimator.SetBool("isSweeping", true);
         print("plaing sweep");
         broomGameObj.SetActive(true);
+        hasStoppedSweepingAnimOnce = false;
 
 
     }
     public void StopSweepingAnimation()
     {
+        if(hasStoppedSweepingAnimOnce == true)
+        {
+            return;
+        }
         sweepingAnimator.SetBool("isSweeping", false);
         print("stopping sweep sweep");
         broomGameObj.SetActive(false);
-        //print("current clip length = " + sweepingAnimator.GetCurrentAnimatorStateInfo(0).length);
 
         // Enable movement
         playerMovement.enabled = true;
         rb.simulated = true;
+        hasStoppedSweepingAnimOnce = true;
     }
     public void HoldMouseButtonSweep()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // TODO: Fix this below, doesnt work cos of animation using a specific position
-
-
-        Vector3 playerPreferedPosition = this.gameObject.transform.position;
-        playerPreferedPosition.y = playerPreferedPosition.y - 0.4f;
-        print("player actual pos is: " + this.gameObject.transform.position);
-
-        var distance = Vector2.Distance(playerPreferedPosition, mousePos); // Calculate the distance from players feet to the current mouse pos
-
-        print("playerPrefered pos a little bit lower (at the feet) is: " + playerPreferedPosition);
-        if (distance > 0.7f) //&&  MousePos is in AllowedDirectionToSweep -> MousePos must be PlayerPos and towards allowedDir )
+        if (isInsideSweepingRadius == false)
         {
-
-            sweepColor.a = 0;
-            sweepingSprite.color = Color.green;
-            sweepingSprite.color = sweepColor;
+            isMouseButtonHeldDown = false;
             return;
         }
-        
-        sweepingSprite.color = Color.green;
-        sweepingSprite.color = sweepColor;
-        sweepColor.a = 1;
-        print("Mousepos is: " + mousePos);
-        print("sweepObj is: " + sweepingAreaObj);
+        if(isMouseButtonHeldDown == false && broomGameObj.activeSelf == false && isInsideSweepingRadius == true)
+        {
+            PlaySweepAnimation();
+            mouseHovering.DisableSwipeIcon();
+            isMouseButtonHeldDown = true;
+        }
 
-        Vector2 mousePos2D = mousePos;
-        sweepingAreaObj.transform.position = mousePos2D;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos2D = mousePos;
 
-        //broomGameObj.transform.parent.position = mousePos2D;
-
-        Vector2 broomObjPosition = mousePos2D;
-        broomObjPosition.y = broomObjPosition.y + 1; // This sets the broom to be higher (y) than the mouse so we can see what we are sweeping
+        broomObjPosition = mousePos2D;
+        broomObjPosition.y = broomObjPosition.y + 1; // This sets the broom to be higher (y axis) than the mouse so we can see what we are sweeping
         broomGameObj.transform.parent.position = broomObjPosition;
-
 
         Vector3 aboveMousePos = mousePos;
         aboveMousePos.y = aboveMousePos.y + 0.1f;
@@ -125,17 +125,7 @@ public class PlayerSweeping : MonoBehaviour
 
 
         Vector3Int position = dirtGrid.WorldToCell(mousePos);
-        
-
-        // TODO: 
-        // 3. If the player is facing right -> Return from function sweeping if mousePosition is not to the right of player
-        // if(playerpos == right && mousePos == right){ sweep() }
-        //print("Distance between player and mouse is: " + distance);
-
-        // TODO: 
-        // 1. Get the sweepingCollider to follow the mousepointer
-
-
+       
 
        
 
@@ -165,26 +155,26 @@ public class PlayerSweeping : MonoBehaviour
 
         // TODO : CREATE SO IF PLAYER IS LOOKING DOWN WE CAN ONLY SWEEP LOWER THAN HIS CURRENT Y POSITION && DISTANCE OF 0.7F
 
-        if (playersCurrentFacingDir == "Right" && mousePos.x > playerPreferedPosition.x + 0.1f)
+        if (playersCurrentFacingDir == "Right")
         {
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(abovePosition, null);
             dirtTilemap.SetTile(belowPosition, null);
 
         }
-        else if (playersCurrentFacingDir == "Left" && mousePos.x < playerPreferedPosition.x - 0.1f)
+        else if (playersCurrentFacingDir == "Left")
         {
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(abovePosition, null);
             dirtTilemap.SetTile(belowPosition, null);
         }
-        else if (playersCurrentFacingDir == "Up" && mousePos.y > playerPreferedPosition.y + 0.1f)
+        else if (playersCurrentFacingDir == "Up")
         {
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(leftOfPosition, null);
             dirtTilemap.SetTile(rightOfPosition, null);
         }
-        else if (playersCurrentFacingDir == "Down" && mousePos.y < playerPreferedPosition.y - 0.1f)
+        else if (playersCurrentFacingDir == "Down")
         {
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(leftOfPosition, null);
@@ -194,8 +184,20 @@ public class PlayerSweeping : MonoBehaviour
 
     public void StopSweeping()
     {
-        sweepColor.a = 0;
-        sweepingSprite.color = Color.green;
-        sweepingSprite.color = sweepColor;
+        print("Stopped sweeping, only a print - no code");
+    }
+
+    public void SetIsInsideSweepingRadius(bool isMouseInsideSweepingRadius)
+    {
+        isInsideSweepingRadius = isMouseInsideSweepingRadius;
+    }
+
+    public void ActivateBroomObj()
+    {
+        broomGameObj.SetActive(true);
+    }
+    public void DeactivateBroomObj()
+    {
+        broomGameObj.SetActive(false);
     }
 }

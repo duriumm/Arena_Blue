@@ -67,3 +67,6 @@ TagManager:
   - name: In front of main
     uniqueID: 3837918583
     locked: 0
+  - name: Total Front (Below GUI tho)
+    uniqueID: 1962857751
+    locked: 0

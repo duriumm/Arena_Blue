@@ -7,7 +7,8 @@ public class PlayerInput : MonoBehaviour
 {
     private PlayerSweeping playerSweeping;
 
-
+    private MouseHovering mouseHovering;
+    private AudioManager audioManager;
    
     
 
@@ -15,8 +16,9 @@ public class PlayerInput : MonoBehaviour
     public void Start()
     {
         playerSweeping = GetComponent<PlayerSweeping>();
+        mouseHovering = GetComponent<MouseHovering>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
-        
     }
 
 
@@ -30,13 +32,13 @@ public class PlayerInput : MonoBehaviour
 
             print("PRESSED MOUSEBUTTON");
             playerSweeping.PlaySweepAnimation();
-
+            mouseHovering.DisableSwipeIcon();
         }
 
         // Is active WHILE mousebuttonLEFT is held down
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("Held");
+            //Debug.Log("Held");
              // Currently the sweepanimation is player swinging sword. 
             playerSweeping.HoldMouseButtonSweep();
         }
@@ -44,6 +46,11 @@ public class PlayerInput : MonoBehaviour
         {
             playerSweeping.StopSweepingAnimation();
             playerSweeping.StopSweeping();
+            if (!mouseHovering.IsDistanceBetweenPlayerAndMouseTooLarge())
+            {
+                mouseHovering.EnableSwipeIcon();
+            }
+            audioManager.StopPlayingCurrentSoundEffect();
         }
     }
 }
