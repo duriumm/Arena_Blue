@@ -10,14 +10,18 @@ public class MouseHovering : MonoBehaviour
     private float distanceMouseToPlayer;
     Vector2 swipeableIconLocation = new Vector2(0,0);
     private bool isInRadius;
-
-    public Texture2D cursorTexture;
-    public CursorMode cursorMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
-
     private PlayerSweeping playerSweeping;
+    [SerializeField]
+    private float allowedSweepingDistance = 0.7f;
+
+    // Set mousecursor to sprite
+    public Texture2D cursorTexture;
+    private CursorMode cursorMode = CursorMode.ForceSoftware;
+    private Vector2 hotSpot;
+    
     void Start()
     {
+        hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         playerSweeping = gameObject.GetComponent<PlayerSweeping>();
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
     }
@@ -26,7 +30,7 @@ public class MouseHovering : MonoBehaviour
         // Calculate distance whenever
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         playerPreferedPosition = this.gameObject.transform.position;
-        playerPreferedPosition.y = playerPreferedPosition.y - 0.4f;
+        playerPreferedPosition.y = playerPreferedPosition.y - 0.3f;
         distanceMouseToPlayer = Vector2.Distance(playerPreferedPosition, mousePos);
 
 
@@ -34,7 +38,7 @@ public class MouseHovering : MonoBehaviour
         usedGameobject.transform.position = swipeableIconLocation;
 
         // If we are inside sweeping radius
-        if (distanceMouseToPlayer < 0.7f && isInRadius == false)
+        if (distanceMouseToPlayer < allowedSweepingDistance && isInRadius == false)
         {
             print("in IF gang");
             EnableSwipeIcon();
@@ -42,7 +46,7 @@ public class MouseHovering : MonoBehaviour
             isInRadius = true;
 
         }
-        else if(distanceMouseToPlayer > 0.7f && isInRadius == true) // If we are Outside sweeping radius
+        else if(distanceMouseToPlayer > allowedSweepingDistance && isInRadius == true) // If we are Outside sweeping radius
         {
             print("in else gang");
             DisableSwipeIcon();
@@ -65,7 +69,7 @@ public class MouseHovering : MonoBehaviour
 
     public bool IsDistanceBetweenPlayerAndMouseTooLarge()
     {
-        if(distanceMouseToPlayer > 0.7f) { return true; }
+        if(distanceMouseToPlayer > allowedSweepingDistance) { return true; }
         else { return false; }     
     }
         

@@ -67,6 +67,8 @@ public class PlayerSweeping : MonoBehaviour
         print("plaing sweep");
         broomGameObj.SetActive(true);
         hasStoppedSweepingAnimOnce = false;
+        print("SHOULD PLAY ABILITY NOW");
+        playerAnimator.SetBool("isUsingAbility", true);
 
 
     }
@@ -84,6 +86,8 @@ public class PlayerSweeping : MonoBehaviour
         playerMovement.enabled = true;
         rb.simulated = true;
         hasStoppedSweepingAnimOnce = true;
+
+        playerAnimator.SetBool("isUsingAbility", false);
     }
     public void HoldMouseButtonSweep()
     {
@@ -92,11 +96,13 @@ public class PlayerSweeping : MonoBehaviour
             isMouseButtonHeldDown = false;
             return;
         }
+        // This cell will only play once whenever we are pressing the mouse button
         if(isMouseButtonHeldDown == false && broomGameObj.activeSelf == false && isInsideSweepingRadius == true)
         {
             PlaySweepAnimation();
             mouseHovering.DisableSwipeIcon();
             isMouseButtonHeldDown = true;
+
         }
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -185,6 +191,7 @@ public class PlayerSweeping : MonoBehaviour
     public void StopSweeping()
     {
         print("Stopped sweeping, only a print - no code");
+        
     }
 
     public void SetIsInsideSweepingRadius(bool isMouseInsideSweepingRadius)

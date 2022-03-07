@@ -3,7 +3,9 @@ guid: d9cc396ee08c96945a99dffe0d596a51
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - usedGameobject: {instanceID: 0}
+  - cursorTexture: {fileID: 2800000, guid: 2eeb2d20475abab48a55e74fe2697908, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
