@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -19,6 +20,7 @@ public class PlayerSweeping : MonoBehaviour
     private Vector2 mousePos2D;
     private Vector2 broomObjPosition;
     private MouseHovering mouseHovering;
+    private DustPointsCalculator dustPointsCalculator;
 
 
     private bool isInsideSweepingRadius;
@@ -42,6 +44,7 @@ public class PlayerSweeping : MonoBehaviour
         dirtTilemap = dirtTilemapGameobject.GetComponent<Tilemap>();
         dirtGrid = GameObject.Find("Dirty Tiles").GetComponent<Grid>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+        dustPointsCalculator = GameObject.Find("Canvas").gameObject.transform.Find("DirtLeftImage").GetComponent<DustPointsCalculator>();
 
     }
 
@@ -141,6 +144,7 @@ public class PlayerSweeping : MonoBehaviour
         {   // == Player is facing right
             print("Player is facing right");
             playersCurrentFacingDir = "Right";
+
         }
         else if (playerMovement.GetLastMoveXdirection() == -1f)
         {   // == Player is facing left
@@ -159,32 +163,56 @@ public class PlayerSweeping : MonoBehaviour
         }
 
 
-        // TODO : CREATE SO IF PLAYER IS LOOKING DOWN WE CAN ONLY SWEEP LOWER THAN HIS CURRENT Y POSITION && DISTANCE OF 0.7F
-
+        // TODO : REMAKE THIS CODE TO BE NICER TO READ. WE ARE NOT REUSING VARIABLES ETCC ETC
+        int tilesRemoved = 0;
         if (playersCurrentFacingDir == "Right")
         {
+            if (dirtTilemap.GetTile(position) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(abovePosition) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(belowPosition) != null) { tilesRemoved += 1; }
+
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(abovePosition, null);
             dirtTilemap.SetTile(belowPosition, null);
+
+            dustPointsCalculator.DecreaseAmountOfDirtLeft(tilesRemoved);
 
         }
         else if (playersCurrentFacingDir == "Left")
         {
+            if (dirtTilemap.GetTile(position) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(abovePosition) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(belowPosition) != null) { tilesRemoved += 1; }
+
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(abovePosition, null);
             dirtTilemap.SetTile(belowPosition, null);
+
+            dustPointsCalculator.DecreaseAmountOfDirtLeft(tilesRemoved);
         }
         else if (playersCurrentFacingDir == "Up")
         {
+            if (dirtTilemap.GetTile(position) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(leftOfPosition) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(rightOfPosition) != null) { tilesRemoved += 1; }
+
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(leftOfPosition, null);
             dirtTilemap.SetTile(rightOfPosition, null);
+
+            dustPointsCalculator.DecreaseAmountOfDirtLeft(tilesRemoved);
         }
         else if (playersCurrentFacingDir == "Down")
         {
+            if (dirtTilemap.GetTile(position) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(leftOfPosition) != null) { tilesRemoved += 1; }
+            if (dirtTilemap.GetTile(rightOfPosition) != null) { tilesRemoved += 1; }
+
             dirtTilemap.SetTile(position, null);
             dirtTilemap.SetTile(leftOfPosition, null);
             dirtTilemap.SetTile(rightOfPosition, null);
+
+            dustPointsCalculator.DecreaseAmountOfDirtLeft(tilesRemoved);
         }
     }
 
