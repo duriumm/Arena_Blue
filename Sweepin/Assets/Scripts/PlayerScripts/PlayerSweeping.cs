@@ -21,6 +21,7 @@ public class PlayerSweeping : MonoBehaviour
     private Vector2 broomObjPosition;
     private MouseHovering mouseHovering;
     private DustPointsCalculator dustPointsCalculator;
+    
 
 
     private bool isInsideSweepingRadius;
@@ -45,6 +46,7 @@ public class PlayerSweeping : MonoBehaviour
         dirtGrid = GameObject.Find("Dirty Tiles").GetComponent<Grid>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         dustPointsCalculator = GameObject.Find("Canvas").gameObject.transform.Find("DirtLeftImage").GetComponent<DustPointsCalculator>();
+        
 
     }
 
@@ -73,6 +75,8 @@ public class PlayerSweeping : MonoBehaviour
         print("SHOULD PLAY ABILITY NOW");
         playerAnimator.SetBool("isUsingAbility", true);
 
+
+        
 
     }
     public void StopSweepingAnimation()

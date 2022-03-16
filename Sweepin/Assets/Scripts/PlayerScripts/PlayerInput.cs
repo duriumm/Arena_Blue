@@ -9,8 +9,11 @@ public class PlayerInput : MonoBehaviour
 
     private MouseHovering mouseHovering;
     private AudioManager audioManager;
-   
-    
+    private PlayerMana playerMana;
+    private GameObject manaStarsParticleEffectObject;
+    private GameObject canvasPrefab;
+
+
 
 
     public void Start()
@@ -18,6 +21,9 @@ public class PlayerInput : MonoBehaviour
         playerSweeping = GetComponent<PlayerSweeping>();
         mouseHovering = GetComponent<MouseHovering>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        playerMana = gameObject.GetComponent<PlayerMana>();
+
+
 
     }
 
@@ -33,6 +39,7 @@ public class PlayerInput : MonoBehaviour
             print("PRESSED MOUSEBUTTON");
             playerSweeping.PlaySweepAnimation();
             mouseHovering.DisableSwipeIcon();
+            playerMana.isManaIncreasing = false;
         }
 
         // Is active WHILE mousebuttonLEFT is held down
@@ -42,6 +49,7 @@ public class PlayerInput : MonoBehaviour
              // Currently the sweepanimation is player swinging sword. 
             playerSweeping.HoldMouseButtonSweep();
         }
+        // Gets called ONCE when we release mousebutton 0
         if (Input.GetMouseButtonUp(0))
         {
             playerSweeping.StopSweepingAnimation();
@@ -51,6 +59,7 @@ public class PlayerInput : MonoBehaviour
                 mouseHovering.EnableSwipeIcon();
             }
             audioManager.StopPlayingCurrentSoundEffect();
+            playerMana.isManaIncreasing = true;
         }
     }
 }
