@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
         }
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+
     }
 
     private void FixedUpdate()

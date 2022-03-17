@@ -21,7 +21,8 @@ public class PlayerSweeping : MonoBehaviour
     private Vector2 broomObjPosition;
     private MouseHovering mouseHovering;
     private DustPointsCalculator dustPointsCalculator;
-    
+    private PlayerMana playerMana;
+
 
 
     private bool isInsideSweepingRadius;
@@ -46,15 +47,11 @@ public class PlayerSweeping : MonoBehaviour
         dirtGrid = GameObject.Find("Dirty Tiles").GetComponent<Grid>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         dustPointsCalculator = GameObject.Find("Canvas").gameObject.transform.Find("DirtLeftImage").GetComponent<DustPointsCalculator>();
-        
+        playerMana = gameObject.GetComponent<PlayerMana>();
 
+        StopSweepingAnimation();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
 
     public void PlaySweepAnimation()
@@ -69,14 +66,14 @@ public class PlayerSweeping : MonoBehaviour
 
         // Play the attack animation
         sweepingAnimator.SetBool("isSweeping", true);
-        print("plaing sweep");
+
         broomGameObj.SetActive(true);
         hasStoppedSweepingAnimOnce = false;
-        print("SHOULD PLAY ABILITY NOW");
+        print("In PlaySweepAnimation() ");
         playerAnimator.SetBool("isUsingAbility", true);
 
 
-        
+        playerMana.isManaIncreasing = false;
 
     }
     public void StopSweepingAnimation()
@@ -98,18 +95,23 @@ public class PlayerSweeping : MonoBehaviour
     }
     public void HoldMouseButtonSweep()
     {
+        // If we are outside sweepingradius we should exit func
         if (isInsideSweepingRadius == false)
         {
+            // This will stop the mana drain if we are holding down mousebutton inside sweeping radius and then dragging it outside radius
+            if (playerMana.isManaIncreasing == false) { playerMana.isManaIncreasing = true; }
+
             isMouseButtonHeldDown = false;
             return;
         }
-        // This cell will only play once whenever we are pressing the mouse button
+        // This cell will only play if we hold down the mousebutton outside the sweeping radius and drag it inside the sweepingradius
         if(isMouseButtonHeldDown == false && broomGameObj.activeSelf == false && isInsideSweepingRadius == true)
         {
             PlaySweepAnimation();
             mouseHovering.DisableSwipeIcon();
             isMouseButtonHeldDown = true;
-
+            print("should set mana increase to false now");
+            playerMana.isManaIncreasing = false;
         }
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -222,8 +224,8 @@ public class PlayerSweeping : MonoBehaviour
 
     public void StopSweeping()
     {
-        print("Stopped sweeping, only a print - no code");
-        
+        print("Stopped sweeping, printing once");
+        playerMana.isManaIncreasing = true;
     }
 
     public void SetIsInsideSweepingRadius(bool isMouseInsideSweepingRadius)

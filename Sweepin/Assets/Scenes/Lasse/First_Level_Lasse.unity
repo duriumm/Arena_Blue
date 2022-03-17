@@ -22254,6 +22254,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1723994035}
+          m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+          m_MethodName: SwitchPauseScreen
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &274578937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100216,6 +100232,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1843213772797511731, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -12.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843213772797511731, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843213772797511731, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.026397705
+      objectReference: {fileID: 0}
     - target: {fileID: 1843213773606315788, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_Value
       value: 100
@@ -100458,6 +100486,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1775772309}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1723994034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723994036}
+  - component: {fileID: 1723994035}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1723994035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723994034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1849810d415da4244ac899922a779731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isScreenPaused: 0
+--- !u!4 &1723994036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723994034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1742668705 stripped
 GameObject:
@@ -100845,7 +100917,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4697616969040342004, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
   m_PrefabInstance: {fileID: 3985200814829487613}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2071896375
+--- !u!114 &2071896376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100854,12 +100926,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2071896363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48b26acf87fe384694572da11f3f32b, type: 3}
+  m_Script: {fileID: 11500000, guid: 546aca91bcfaebe4da3d0bdf92e4a513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaToDecreasePerTick: 5
-  manaToIncreasePerTick: 2
-  isManaIncreasing: 0
 --- !u!1 &2127244936
 GameObject:
   m_ObjectHideFlags: 0
@@ -101111,14 +101180,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 184143327, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: allowedSweepingDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1085638682, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 586309248}
+    - target: {fileID: 2071896375, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: isManaIncreasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071896375, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: manaToDecreasePerTick
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2101443665, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: dirtTilemapGameobject
       value: 

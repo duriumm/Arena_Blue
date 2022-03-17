@@ -7,11 +7,11 @@ public class PlayerMana : MonoBehaviour
 {
     private Slider manaSlider;
     private GameObject canvasPrefab;
-    public float manaToDecreasePerTick = 2f;
+    public float manaToDecreasePerTick = 10f;
     public float manaToIncreasePerTick = 2f;
     private float currentMana = 100f;
     private float maxMana = 100f;
-    public bool isManaIncreasing = false;
+    public bool isManaIncreasing = true;
 
     private GameObject manaStarsParticleEffectObject;
 
@@ -22,6 +22,7 @@ public class PlayerMana : MonoBehaviour
         manaSlider = canvasPrefab.transform.GetChild(0).gameObject.GetComponent<Slider>();
 
         manaStarsParticleEffectObject = canvasPrefab.transform.GetChild(0).gameObject.transform.Find("Fill").gameObject.transform.Find("ManaDrain Effect").gameObject;
+        manaStarsParticleEffectObject.SetActive(false);
 
         manaSlider.maxValue = maxMana;
 
@@ -60,7 +61,7 @@ public class PlayerMana : MonoBehaviour
         }
         isManaIncreasing = true;
         manaStarsParticleEffectObject.SetActive(false);       
-        currentMana += manaToDecreasePerTick * Time.deltaTime;
+        currentMana += manaToIncreasePerTick * Time.deltaTime;
        
     }
 }

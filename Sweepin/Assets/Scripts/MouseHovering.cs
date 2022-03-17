@@ -18,15 +18,23 @@ public class MouseHovering : MonoBehaviour
     public Texture2D cursorTexture;
     private CursorMode cursorMode = CursorMode.ForceSoftware;
     private Vector2 hotSpot;
-    
+
+    private PauseMenu pauseMenu;
+
     void Start()
     {
         hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         playerSweeping = gameObject.GetComponent<PlayerSweeping>();
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        pauseMenu = GameObject.Find("GameManager").gameObject.GetComponent<PauseMenu>();
     }
     void Update()
     {
+        // We dont want to run unneccecary code when the screen is paused
+        if(pauseMenu.isScreenPaused == true)
+        {
+            return;
+        }
         // Calculate distance whenever
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         playerPreferedPosition = this.gameObject.transform.position;
