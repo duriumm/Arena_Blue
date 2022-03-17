@@ -10,8 +10,7 @@ public class PlayerInput : MonoBehaviour
     private MouseHovering mouseHovering;
     private AudioManager audioManager;
     private PlayerMana playerMana;
-    private GameObject manaStarsParticleEffectObject;
-    private GameObject canvasPrefab;
+
 
 
 
