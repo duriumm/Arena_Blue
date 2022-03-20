@@ -117,7 +117,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundEffect(AudioClip audioClipToPlay, float volume)
     {
+        print("in audiomanager playng");
         soundEffectsSource.volume = volume;
+        soundEffectsSource.PlayOneShot(audioClipToPlay);
+    }
+    public void PlayGUISoundEffect(AudioClip audioClipToPlay)
+    {
+        print("Playing GUI effect");
+        soundEffectsSource.volume = 1.0f;
         soundEffectsSource.PlayOneShot(audioClipToPlay);
     }
 

@@ -8,24 +8,27 @@ using UnityEngine;
 
 public class AudioPlayer : MonoBehaviour
 {
-    public AudioManager audioManager;
+    
+    private AudioManager audioManager;
     public List<AudioClip> audioClipList;
+    [Header("Use this script on gameobject in animation to play audio")]
     public AudioClip audioClip;
     [Header("Enter volume from 0.0 to 1.0")]
-    public float volume;
+    public float volume = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
-    private void PlayOneRandomClipFromList()
+    public void PlayOneRandomClipFromList()
     {
     
         audioManager.PlayRandomSoundEffectFromList(audioClipList, volume);
     }
-    private void PlayAudioClip()
+    public void PlayAudioClip()
     {
+        print("playing audio");
         audioManager.PlaySoundEffect(audioClip, volume);
     }
 }
