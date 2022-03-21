@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -48,7 +49,9 @@ public class PauseMenu : MonoBehaviour
     IEnumerator WaitBeforeExitingPauseMenu()
     {
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
+        //Color blackBgColor = blackBackgroundWhenPaused.GetComponent<Image>().color;   // Code this with delta time to fade alpha somewhere
+        //blackBgColor.a = 1f;
+        //blackBackgroundWhenPaused.GetComponent<Image>().color = blackBgColor;
         yield return new WaitForSecondsRealtime(0.4f);
 
         //After we have waited 5 seconds print the time again.

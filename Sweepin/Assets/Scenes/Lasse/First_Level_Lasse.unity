@@ -99819,6 +99819,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 274578935, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -114.58008
+      objectReference: {fileID: 0}
     - target: {fileID: 274578936, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -100732,23 +100736,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2071896363 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4697616969040342004, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-  m_PrefabInstance: {fileID: 3985200814829487613}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2071896376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071896363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 546aca91bcfaebe4da3d0bdf92e4a513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2127244936
 GameObject:
   m_ObjectHideFlags: 0
@@ -101000,26 +100987,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1085638682, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: Notes
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1085638682, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 586309248}
-    - target: {fileID: 2071896375, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: isManaIncreasing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2071896375, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: manaToDecreasePerTick
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2101443665, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: dirtTilemapGameobject
-      value: 
-      objectReference: {fileID: 480652492}
     - target: {fileID: 2258667349212689472, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -101068,10 +101035,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyCharacter
       objectReference: {fileID: 0}
-    - target: {fileID: 6220882671748775716, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: audioManager
+    - target: {fileID: 4841379640375389617, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 586309248}
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4841379640375389617, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_RenderMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504296122095521316, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.135
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
 --- !u!1001 &5886685402258710465
