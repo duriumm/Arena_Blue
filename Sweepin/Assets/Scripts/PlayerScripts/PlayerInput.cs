@@ -46,7 +46,7 @@ public class PlayerInput : MonoBehaviour
             // TODO - Rename this function maybe..??
 
             print("PRESSED MOUSEBUTTON");
-            playerSweeping.PlaySweepAnimation();
+            //playerSweeping.PlaySweepAnimation();
             mouseHovering.DisableSwipeIcon();
             
         }

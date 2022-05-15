@@ -15,13 +15,14 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 movement;
 
-    public AudioManager audioManager;
+    public GameObject audioManagerGameobject;
+    private AudioManager audioManager;
 
 
 
     void Start()
     {
-
+        audioManager = audioManagerGameobject.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame

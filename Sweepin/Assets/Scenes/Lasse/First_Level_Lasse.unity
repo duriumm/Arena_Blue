@@ -100987,6 +100987,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 638322088875909781, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 638322088875909781, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627650257535010200, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: midSweepSprite
+      value: 
+      objectReference: {fileID: -1590408040172072229, guid: d219bab0674db9945abbb8e9243e8ec6, type: 3}
+    - target: {fileID: 1627650257535010200, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: leftSweepSprite
+      value: 
+      objectReference: {fileID: -8248376365162467929, guid: d219bab0674db9945abbb8e9243e8ec6, type: 3}
+    - target: {fileID: 1627650257535010200, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: rightSweepSprite
+      value: 
+      objectReference: {fileID: -3443659148662179260, guid: d219bab0674db9945abbb8e9243e8ec6, type: 3}
     - target: {fileID: 2258667349212689472, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -101035,18 +101055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MyCharacter
       objectReference: {fileID: 0}
-    - target: {fileID: 4841379640375389617, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: m_Mesh
+    - target: {fileID: 6220882671748775716, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
+      propertyPath: audioManagerGameobject
       value: 
-      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 4841379640375389617, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: m_RenderMode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6504296122095521316, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.135
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 586309247}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b673130f318f144e8ac1d3a1146dcfa, type: 3}
 --- !u!1001 &5886685402258710465

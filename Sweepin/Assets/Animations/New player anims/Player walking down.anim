@@ -83,7 +83,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: PlayerFootstepSound
+    functionName: TriggerFootstepCollider
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: f45d13d6fe2c4a6418123e881d078eb3, type: 3}
     floatParameter: 0

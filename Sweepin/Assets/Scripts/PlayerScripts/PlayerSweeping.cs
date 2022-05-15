@@ -22,6 +22,7 @@ public class PlayerSweeping : MonoBehaviour
     private MouseHovering mouseHovering;
     private DustPointsCalculator dustPointsCalculator;
     private PlayerMana playerMana;
+    private Renderer sweepingMarkerRenderer;
 
 
 
@@ -30,8 +31,17 @@ public class PlayerSweeping : MonoBehaviour
     private bool hasStoppedSweepingAnimOnce = false;
 
     private bool isMouseButtonHeldDown = false;
-    
 
+    private GameObject broomOnBack;
+
+    private Vector3 downSweepingSquarePosition;
+
+    public Sprite leftSweepSprite;
+    public Sprite rightSweepSprite;
+    public Sprite midSweepSprite;
+    public Sprite idleSprite;
+
+    private SpriteRenderer playerSpriteRenderer;
 
     void Start()
     {
@@ -49,7 +59,15 @@ public class PlayerSweeping : MonoBehaviour
         dustPointsCalculator = GameObject.Find("Canvas").gameObject.transform.Find("DirtLeftImage").GetComponent<DustPointsCalculator>();
         playerMana = gameObject.GetComponent<PlayerMana>();
 
+        broomOnBack = this.gameObject.transform.Find("CurrentlyEquippedSweeper").gameObject;
+        downSweepingSquarePosition = this.gameObject.transform.Find("SweepingPosition").Find("Marker").transform.position;
+        //print("--------MARKER POS START: "+downSweepingSquarePosition);
+        sweepingMarkerRenderer = this.gameObject.transform.Find("SweepingPosition").Find("Marker").GetComponent<SpriteRenderer>();
+  
         StopSweepingAnimation();
+
+
+        playerSpriteRenderer = this.gameObject.GetComponent<SpriteRenderer>();
     }
 
 
@@ -71,7 +89,7 @@ public class PlayerSweeping : MonoBehaviour
         hasStoppedSweepingAnimOnce = false;
         print("In PlaySweepAnimation() ");
         playerAnimator.SetBool("isUsingAbility", true);
-
+        broomOnBack.SetActive(false);
 
         playerMana.isManaIncreasing = false;
 
@@ -90,32 +108,73 @@ public class PlayerSweeping : MonoBehaviour
         playerMovement.enabled = true;
         rb.simulated = true;
         hasStoppedSweepingAnimOnce = true;
-
+        broomOnBack.SetActive(true);
         playerAnimator.SetBool("isUsingAbility", false);
     }
     public void HoldMouseButtonSweep()
     {
-        // If we are outside sweepingradius we should exit func
-        if (isInsideSweepingRadius == false)
-        {
-            // This will stop the mana drain if we are holding down mousebutton inside sweeping radius and then dragging it outside radius
-            if (playerMana.isManaIncreasing == false) { playerMana.isManaIncreasing = true; }
+        //// If we are outside sweepingradius we should exit func
+        //if (isInsideSweepingRadius == false)
+        //{
+        //    // This will stop the mana drain if we are holding down mousebutton inside sweeping radius and then dragging it outside radius
+        //    if (playerMana.isManaIncreasing == false) { playerMana.isManaIncreasing = true; }
 
-            isMouseButtonHeldDown = false;
-            return;
-        }
-        // This cell will only play if we hold down the mousebutton outside the sweeping radius and drag it inside the sweepingradius
-        if(isMouseButtonHeldDown == false && broomGameObj.activeSelf == false && isInsideSweepingRadius == true)
-        {
-            PlaySweepAnimation();
-            mouseHovering.DisableSwipeIcon();
-            isMouseButtonHeldDown = true;
-            print("should set mana increase to false now");
-            playerMana.isManaIncreasing = false;
-        }
+        //    isMouseButtonHeldDown = false;
+        //    return;
+        //}
+        //// This cell will only play if we hold down the mousebutton outside the sweeping radius and drag it inside the sweepingradius
+        //if(isMouseButtonHeldDown == false && broomGameObj.activeSelf == false && isInsideSweepingRadius == true)
+        //{
+        //    PlaySweepAnimation();
+        //    mouseHovering.DisableSwipeIcon();
+        //    isMouseButtonHeldDown = true;
+        //    print("should set mana increase to false now");
+        //    playerMana.isManaIncreasing = false;
+        //}
 
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos2D = mousePos;
+        Vector3Int position = dirtGrid.WorldToCell(mousePos);
+
+        // TESTING NEW NEW NEW WAY WITH MOVABLE SWEEPER WITH MOUSE // TESTING NEW NEW NEW WAY WITH MOVABLE SWEEPER WITH MOUSE
+        this.gameObject.GetComponent<Animator>().enabled = false;
+        Vector3 playerPosition = gameObject.transform.position;
+        print("----- PLAYER POS: " + playerPosition);
+        print("----- MOUSE POS: " + mousePos);
+
+
+
+        // If mouse is to the left of player
+        if (mousePos.x < playerPosition.x - 0.3f) 
+        {
+            playerSpriteRenderer.sprite = leftSweepSprite;
+        
+            if(this.gameObject.transform.Find("SweepingPosition").Find("Marker").transform.position.x < playerPosition.x - 0.2f) { return; }
+            else
+            {
+                Vector3 temp = new Vector3(-0.1f, 0, 0);
+                this.gameObject.transform.Find("SweepingPosition").Find("Marker").transform.position += temp;
+            }        
+        }
+        // If mouse is to the right of player
+        else if (mousePos.x > playerPosition.x + 0.3f)
+        {
+
+            if (this.gameObject.transform.Find("SweepingPosition").Find("Marker").transform.position.x > playerPosition.x + 0.2f) { return; }
+            else
+            {
+                Vector3 temp = new Vector3(+0.1f, 0, 0);
+                this.gameObject.transform.Find("SweepingPosition").Find("Marker").transform.position += temp;
+            }
+            playerSpriteRenderer.sprite = rightSweepSprite;
+        }
+        else
+        {
+            playerSpriteRenderer.sprite = midSweepSprite;
+        }
+        // TESTING NEW NEW NEW WAY WITH MOVABLE SWEEPER WITH MOUSE // TESTING NEW NEW NEW WAY WITH MOVABLE SWEEPER WITH MOUSE
+
+       
 
         broomObjPosition = mousePos2D;
         broomObjPosition.y = broomObjPosition.y + 1; // This sets the broom to be higher (y axis) than the mouse so we can see what we are sweeping
@@ -129,42 +188,50 @@ public class PlayerSweeping : MonoBehaviour
         belowMousePos.y = belowMousePos.y - 0.1f;
         Vector3Int belowPosition = dirtGrid.WorldToCell(belowMousePos);
 
-        Vector3 leftOfMousePos = mousePos;
+        Vector3 leftOfMousePos = downSweepingSquarePosition;
         leftOfMousePos.x = leftOfMousePos.x - 0.1f;
         Vector3Int leftOfPosition = dirtGrid.WorldToCell(leftOfMousePos);
 
-        Vector3 rightOfMousePos = mousePos;
+        Vector3 rightOfMousePos = downSweepingSquarePosition;
         rightOfMousePos.x = rightOfMousePos.x + 0.1f;
         Vector3Int rightOfPosition = dirtGrid.WorldToCell(rightOfMousePos);
 
 
 
-        Vector3Int position = dirtGrid.WorldToCell(mousePos);
-       
+        
 
-       
+
+        // TESTING WITH THE NEW SWEEPING SYSTEM
+        //Vector2 sweepPos2D = downSweepingSquarePosition;
+        downSweepingSquarePosition = this.gameObject.transform.Find("SweepingPosition").Find("Marker").transform.position;
+        Vector3Int markerSweepPosition = dirtGrid.WorldToCell(downSweepingSquarePosition);
+        position = markerSweepPosition;
+        //print("----- OLD V3INT POS: " + position);
+        //print("----- NEW TEST V3INT POS: " + markerSweepPosition);
+
+
 
 
         string playersCurrentFacingDir = "";
         if (playerMovement.GetLastMoveXdirection() == 1f)
         {   // == Player is facing right
-            print("Player is facing right");
+            //print("Player is facing right");
             playersCurrentFacingDir = "Right";
 
         }
         else if (playerMovement.GetLastMoveXdirection() == -1f)
         {   // == Player is facing left
-            print("Player is facing left");
+            //print("Player is facing left");
             playersCurrentFacingDir = "Left";
         }
         else if (playerMovement.GetLastMoveYdirection() == 1f)
         {   // == Player is facing up
-            print("Player is facing up");
+            //print("Player is facing up");
             playersCurrentFacingDir = "Up";
         }
         else if (playerMovement.GetLastMoveYdirection() == -1f)
         {   // == Player is facing down
-            print("Player is facing down");
+            //print("Player is facing down");
             playersCurrentFacingDir = "Down";
         }
 
@@ -219,6 +286,13 @@ public class PlayerSweeping : MonoBehaviour
             dirtTilemap.SetTile(rightOfPosition, null);
 
             dustPointsCalculator.DecreaseAmountOfDirtLeft(tilesRemoved);
+
+            //// TEST WITH NEW SWEEPING SYSTEM
+            //print("--------- HERE WE SHOULD REMOVE DIRT BELOW PLAYER");
+            //dirtTilemap.SetTile(markerSweepPosition, null);
+            //print("--------- In function MarkersweepPosition is: "+ markerSweepPosition);
+          
+
         }
     }
 
