@@ -3,47 +3,91 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * PlayerHealth is attached to the player and connects to the heartsmanager which is the one removing/adding hearts.
+ * The reason we have two scripts is that this PlayerHealth script is the one taking the damage and is attached
+ * to the player. So the playerhealth is just pushing the data forward to heartsmanager
+ */ 
 public class PlayerHealth : MonoBehaviour
 {
-    public int playerHealth;
-    private Slider mySlider;
-    private GameObject canvasPrefab;
     private GameObject myPlayerObject;
     private Vector2 playerSpawnPoint;
+    public SpriteRenderer playerBodySprite, playerRightHandSprite, playerLeftHandSprite;
+    public Color unDamagedCharactedColor, damagedCharactedColor;
+    public HeartsManager heartsManager;
+    public GameObject deathCanvas;
+    public GameObject playerDeathParticleEffectGameObject;
+    private GuiManager guiManager;
+
+    public int currentAmountOfHearts;
+    private bool didPlayerDie = false;
     void Start()
     {
-        canvasPrefab = GameObject.FindWithTag("Canvas");
-        mySlider = canvasPrefab.transform.GetChild(0).gameObject.GetComponent<Slider>();
- 
-
-        mySlider.value = playerHealth;
         myPlayerObject = this.gameObject;
         playerSpawnPoint = myPlayerObject.transform.position;
+        guiManager = GameObject.Find("GuiManager").GetComponent<GuiManager>();
 
     }
 
-
-    public void TakeDamage(int damageToReceive)
+    // Damage is hearts based where 1 damage equals one heart removed
+    public void TakeDamage(int heartsToRemove)
     {
-        playerHealth -= damageToReceive;
-        mySlider.value = playerHealth;
-        if (playerHealth <= 0)
+        currentAmountOfHearts = heartsManager.DecreaseHearts(heartsToRemove);
+
+        if (currentAmountOfHearts <= 0)
         {
-            respawnPlayer();
+            StopAllCoroutines();
+            var pl = gameObject.GetComponent<PlayerCollision>();
+            pl.StopAllCoroutines();
+            PlayerDeath();
         }
+        else
+        {
+            print("COROUTINE CHANGE COLOR");
+
+            StartCoroutine(ChangeColorOnTakeDamage());
+        }
+
     }
 
-    public void GainHealth(int healthToGain)
+    public void GainHealth(int heartsToAdd)
     {
-        playerHealth += healthToGain;
-        mySlider.value = playerHealth;
+        heartsManager.IncreaseHearts(heartsToAdd);
     }
 
     private void respawnPlayer()
     {
         myPlayerObject.transform.position = playerSpawnPoint;
-        playerHealth = 100;
-        mySlider.value = playerHealth;
+        heartsManager.IncreaseHearts(3);
+    }
 
+    private IEnumerator ChangeColorOnTakeDamage()
+    {
+        playerBodySprite.color = damagedCharactedColor;
+        playerRightHandSprite.color = damagedCharactedColor;
+        playerLeftHandSprite.color = damagedCharactedColor;
+        yield return new WaitForSeconds(0.2f);
+        playerBodySprite.color = unDamagedCharactedColor;
+        playerRightHandSprite.color = unDamagedCharactedColor;
+        playerLeftHandSprite.color = unDamagedCharactedColor;
+    }
+
+    public void PlayerDeath()
+    {
+        playerDeathParticleEffectGameObject.SetActive(true);
+        foreach (Transform child in myPlayerObject.transform)
+        {
+            child.gameObject.SetActive(false);
+
+        }
+        var animator = myPlayerObject.GetComponent<Animator>();
+        animator.SetTrigger("PlayerDeath");
+    }
+
+
+    // This function is to be able to call it from the animation
+    public void OpenDeathScreenCanvas()
+    {
+        guiManager.ToggleMenu("DeathCanvas");
     }
 }

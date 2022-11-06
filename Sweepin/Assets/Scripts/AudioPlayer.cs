@@ -6,6 +6,12 @@ using UnityEngine;
 // We have this audioplayer since we need the script on the gameobject to play it from animation 
 // Therefor we call this script and then the audiomanager to play the actual sound :)
 
+
+// So basucally. If you want to play something from animation, attach THIS script.
+// Else, just use audio manager
+
+// Audiomanager seems to work fine.. not sure why i have this script?
+
 public class AudioPlayer : MonoBehaviour
 {
     
@@ -24,11 +30,11 @@ public class AudioPlayer : MonoBehaviour
     public void PlayOneRandomClipFromList()
     {
     
-        audioManager.PlayRandomSoundEffectFromList(audioClipList, volume);
+        audioManager.PlayRandomSoundEffectFromList(audioClipList, volume, audioManager.enemySoundsSource);
     }
     public void PlayAudioClip()
     {
         print("playing audio");
-        audioManager.PlaySoundEffect(audioClip, volume);
+        audioManager.PlaySoundEffect(audioClip, volume, audioManager.enemySoundsSource);
     }
 }

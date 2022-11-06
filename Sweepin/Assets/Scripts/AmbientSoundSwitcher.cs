@@ -13,11 +13,11 @@ public class AmbientSoundSwitcher : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (audioManager.ambientSoundSource.clip != ambientSoundToPlay && collision.gameObject.tag == "MyPlayer")
-        {
-            print("We triggered on ambient sound obj");
-            audioManager.PlayAmbientSound(ambientSoundToPlay);
-        }
+        //if (audioManager.ambientSoundSource.clip != ambientSoundToPlay && collision.gameObject.tag == "MyPlayer")
+        //{
+        //    print("We triggered on ambient sound obj");
+        //    audioManager.PlayAmbientSound(ambientSoundToPlay);
+        //}
 
     }
 }

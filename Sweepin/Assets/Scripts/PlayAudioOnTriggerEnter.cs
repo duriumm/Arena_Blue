@@ -27,7 +27,7 @@ public class PlayAudioOnTriggerEnter : MonoBehaviour
 
     IEnumerator PlaySoundAndWaitForSeconds(float secondsToWait)
     {
-        audioManager.PlayTriggerSound(audioClipToPlay);
+        //audioManager.PlayTriggerSound(audioClipToPlay);
         isAudioReadyToPlay = false;
         yield return new WaitForSeconds(secondsToWait);
         isAudioReadyToPlay = true;

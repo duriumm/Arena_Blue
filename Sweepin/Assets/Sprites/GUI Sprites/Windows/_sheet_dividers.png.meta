@@ -1,0 +1,1332 @@
+fileFormatVersion: 2
+guid: fb7d299e3a48e474d97c4aa3f750cabc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4241128599866396386
+    second: _sheet_dividers_0
+  - first:
+      213: 7265112526373070713
+    second: _sheet_dividers_1
+  - first:
+      213: 7692492592783613051
+    second: _sheet_dividers_2
+  - first:
+      213: 6581121766101087461
+    second: _sheet_dividers_3
+  - first:
+      213: 7094261443329884074
+    second: _sheet_dividers_4
+  - first:
+      213: 4557922499275232975
+    second: _sheet_dividers_5
+  - first:
+      213: -968288307417095038
+    second: _sheet_dividers_6
+  - first:
+      213: 1722246643729352380
+    second: _sheet_dividers_7
+  - first:
+      213: -1648057053536659939
+    second: _sheet_dividers_8
+  - first:
+      213: -3187418090511795678
+    second: _sheet_dividers_9
+  - first:
+      213: -1162053926959727784
+    second: _sheet_dividers_10
+  - first:
+      213: -6258425556465050100
+    second: _sheet_dividers_11
+  - first:
+      213: 5983928122742603586
+    second: _sheet_dividers_12
+  - first:
+      213: -3764846688045141381
+    second: _sheet_dividers_13
+  - first:
+      213: -8013764730492163721
+    second: _sheet_dividers_14
+  - first:
+      213: -8690908188005433935
+    second: _sheet_dividers_15
+  - first:
+      213: 1960068103479019875
+    second: _sheet_dividers_16
+  - first:
+      213: 7551164951890191090
+    second: _sheet_dividers_17
+  - first:
+      213: -2952587669322345312
+    second: _sheet_dividers_18
+  - first:
+      213: -6387800614593066864
+    second: _sheet_dividers_19
+  - first:
+      213: 6619577476222275188
+    second: _sheet_dividers_20
+  - first:
+      213: 855244284928494965
+    second: _sheet_dividers_21
+  - first:
+      213: 1574830026358364526
+    second: _sheet_dividers_22
+  - first:
+      213: -1126441243907456940
+    second: _sheet_dividers_23
+  - first:
+      213: 3545867655438455267
+    second: _sheet_dividers_24
+  - first:
+      213: -2110737776834418626
+    second: _sheet_dividers_25
+  - first:
+      213: -793991943007359633
+    second: _sheet_dividers_26
+  - first:
+      213: 4557530218183489370
+    second: _sheet_dividers_27
+  - first:
+      213: 2735721396498876818
+    second: _sheet_dividers_28
+  - first:
+      213: -75771818600181766
+    second: _sheet_dividers_29
+  - first:
+      213: -1207756779743075836
+    second: _sheet_dividers_30
+  - first:
+      213: 1230664472236005450
+    second: _sheet_dividers_31
+  - first:
+      213: -6924676701604516105
+    second: _sheet_dividers_32
+  - first:
+      213: -2213293936253543887
+    second: _sheet_dividers_33
+  - first:
+      213: 3971802161097105890
+    second: _sheet_dividers_34
+  - first:
+      213: 3894621989714017110
+    second: _sheet_dividers_35
+  - first:
+      213: -8006973771011201087
+    second: _sheet_dividers_36
+  - first:
+      213: -2273454383232778817
+    second: _sheet_dividers_37
+  - first:
+      213: -330419362118761584
+    second: _sheet_dividers_38
+  - first:
+      213: -866857564329928231
+    second: _sheet_dividers_39
+  - first:
+      213: -5502653732814281032
+    second: _sheet_dividers_40
+  - first:
+      213: -538885096630450136
+    second: _sheet_dividers_41
+  - first:
+      213: -8529619044172948994
+    second: _sheet_dividers_42
+  - first:
+      213: -189338698911485119
+    second: _sheet_dividers_43
+  - first:
+      213: -5506435501408669906
+    second: _sheet_dividers_44
+  - first:
+      213: -215200274391151924
+    second: _sheet_dividers_45
+  - first:
+      213: -718837200594037400
+    second: _sheet_dividers_46
+  - first:
+      213: -498556359423543442
+    second: _sheet_dividers_47
+  - first:
+      213: -6606511585054988560
+    second: _sheet_dividers_48
+  - first:
+      213: 8620877501623594863
+    second: _sheet_dividers_49
+  - first:
+      213: 4043037938622104246
+    second: _sheet_dividers_50
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _sheet_dividers_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 91
+        width: 17
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11b636420c7425c0800000000000000
+      internalID: -4241128599866396386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 90
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97725bbb95dd2d460800000000000000
+      internalID: 7265112526373070713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 90
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7cd03ea14931ca60800000000000000
+      internalID: 7692492592783613051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 90
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4fb04c067d45b50800000000000000
+      internalID: 6581121766101087461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_4
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf7d691231e37260800000000000000
+      internalID: 7094261443329884074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 83
+        width: 17
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc69f0b3d5ef04f30800000000000000
+      internalID: 4557922499275232975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_6
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2846d342ae2ff82f0800000000000000
+      internalID: -968288307417095038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 81
+        width: 26
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6c8179236a6e710800000000000000
+      internalID: 1722246643729352380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16de5277dce029e0800000000000000
+      internalID: -1648057053536659939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_9
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 75
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22af364622404c3d0800000000000000
+      internalID: -3187418090511795678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_10
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85bb7b93c1e8fdfe0800000000000000
+      internalID: -1162053926959727784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 75
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e9cad6d1b9529a0800000000000000
+      internalID: -6258425556465050100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 66
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ffa856cee2b0350800000000000000
+      internalID: 5983928122742603586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_13
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 66
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72734d52e390cbc0800000000000000
+      internalID: -3764846688045141381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_14
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 66
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 779e575bf6369c090800000000000000
+      internalID: -8013764730492163721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 66
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bdf666ac01b36780800000000000000
+      internalID: -8690908188005433935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_16
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 50
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369c0732e8f833b10800000000000000
+      internalID: 1960068103479019875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 51
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f26bc514802bc860800000000000000
+      internalID: 7551164951890191090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_18
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 50
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a4d7d1882d4607d0800000000000000
+      internalID: -2952587669322345312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_19
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 51
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098882f5f29f957a0800000000000000
+      internalID: -6387800614593066864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_20
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 50
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ec76184a67ddb50800000000000000
+      internalID: 6619577476222275188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_21
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 51
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d885755207edb00800000000000000
+      internalID: 855244284928494965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_22
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 50
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6995bea09bead510800000000000000
+      internalID: 1574830026358364526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_23
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 51
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4500c8428a31e50f0800000000000000
+      internalID: -1126441243907456940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 42
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1d4f688d3753130800000000000000
+      internalID: 3545867655438455267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_25
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 42
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3869c5dc2725b2e0800000000000000
+      internalID: -2110737776834418626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_26
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 42
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d268ad88c2bf4f0800000000000000
+      internalID: -793991943007359633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_27
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 42
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a577feb26999f3f30800000000000000
+      internalID: 4557530218183489370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_28
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 26
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29940ca9d1c37f520800000000000000
+      internalID: 2735721396498876818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_29
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 27
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: affc954beedc2fef0800000000000000
+      internalID: -75771818600181766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_30
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 26
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40228589b9f2d3fe0800000000000000
+      internalID: -1207756779743075836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_31
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 27
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48125131d2341110800000000000000
+      internalID: 1230664472236005450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_32
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 26
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe60787a3b96ef90800000000000000
+      internalID: -6924676701604516105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_33
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 27
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ad41a34ecc841e0800000000000000
+      internalID: -2213293936253543887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_34
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 26
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e16252a50dae1730800000000000000
+      internalID: 3971802161097105890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_35
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 27
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b3457a01a7c0630800000000000000
+      internalID: 3894621989714017110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_36
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 18
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7e10d27c381e090800000000000000
+      internalID: -8006973771011201087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_37
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 18
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdfa52a8411370e0800000000000000
+      internalID: -2273454383232778817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_38
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 18
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 093000e375d1a6bf0800000000000000
+      internalID: -330419362118761584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_39
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 18
+        width: 26
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9114753ad48f3f0800000000000000
+      internalID: -866857564329928231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6a0a59595a2a3b0800000000000000
+      internalID: -5502653732814281032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_41
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82807981cde7588f0800000000000000
+      internalID: -538885096630450136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_42
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef91aa2dba4b0a980800000000000000
+      internalID: -8529619044172948994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_43
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 3
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143752dd4755f5df0800000000000000
+      internalID: -189338698911485119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_44
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 2
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fafe7f5163593b0800000000000000
+      internalID: -5506435501408669906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_45
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca49599d74730df0800000000000000
+      internalID: -215200274391151924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_46
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8659147ef5d2606f0800000000000000
+      internalID: -718837200594037400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_47
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 3
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e673c00f1a5c419f0800000000000000
+      internalID: -498556359423543442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_48
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 81
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f66b4857b4f054a0800000000000000
+      internalID: -6606511585054988560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_49
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 90
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f6e60996283a770800000000000000
+      internalID: 8620877501623594863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _sheet_dividers_50
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 75
+        width: 17
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b28ff09591cb1830800000000000000
+      internalID: 4043037938622104246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

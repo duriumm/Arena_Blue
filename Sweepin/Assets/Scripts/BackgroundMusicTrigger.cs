@@ -13,11 +13,11 @@ public class BackgroundMusicTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (audioManager.backgroundSoundSource.clip != backgroundMusic && collision.gameObject.tag == "MyPlayer")
-        {
-            print("We triggered on BG music sound obj");
-            audioManager.PlayBackgroundMusic(backgroundMusic);
-        }
+        //if (audioManager.backgroundSoundSource.clip != backgroundMusic && collision.gameObject.tag == "MyPlayer")
+        //{
+        //    print("We triggered on BG music sound obj");
+        //    audioManager.PlayBackgroundMusic(backgroundMusic);
+        //}
 
     }
 }

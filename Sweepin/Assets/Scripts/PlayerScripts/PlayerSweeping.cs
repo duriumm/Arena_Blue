@@ -109,6 +109,7 @@ public class PlayerSweeping : MonoBehaviour
         rb.simulated = true;
         hasStoppedSweepingAnimOnce = true;
         broomOnBack.SetActive(true);
+        playerAnimator.Play("Player_All_Idles");
         playerAnimator.SetBool("isUsingAbility", false);
     }
     public void HoldMouseButtonSweep()

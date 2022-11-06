@@ -1,84 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MouseHovering : MonoBehaviour
+public class MouseHovering : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject usedGameobject;
-    private Vector3 playerPreferedPosition;
-    private Vector3 mousePos;
-    private float distanceMouseToPlayer;
-    Vector2 swipeableIconLocation = new Vector2(0,0);
-    private bool isInRadius;
-    private PlayerSweeping playerSweeping;
-    [SerializeField]
-    private float allowedSweepingDistance = 0.7f;
+    public GameObject hoverItemCanvasGameObject;
+    private Canvas canvas;
 
-    // Set mousecursor to sprite
-    public Texture2D cursorTexture;
-    private CursorMode cursorMode = CursorMode.ForceSoftware;
-    private Vector2 hotSpot;
+    private ItemData itemData;
+    private TextMeshProUGUI itemText;
+    public Transform originalParent;
+    public bool hasItemStartedDragging = false;
 
-    private PauseMenu pauseMenu;
-
-    void Start()
+    private void Start()
     {
-        hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
-        playerSweeping = gameObject.GetComponent<PlayerSweeping>();
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-        pauseMenu = GameObject.Find("GameManager").gameObject.GetComponent<PauseMenu>();
-    }
-    void Update()
-    {
-        // We dont want to run unneccecary code when the screen is paused
-        if(pauseMenu.isScreenPaused == true)
+        originalParent = gameObject.transform.parent;
+        canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>();
+        hoverItemCanvasGameObject = gameObject.transform.Find("HoverItemCanvas").gameObject;
+        hoverItemCanvasGameObject.SetActive(true);
+        var childGameObjects = GetComponentsInChildren<Transform>();
+        foreach (var child in childGameObjects)
         {
-            return;
+            if (child.name == "HoverItemText") { itemText = child.gameObject.GetComponent<TextMeshProUGUI>(); }
         }
-        // Calculate distance whenever
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        playerPreferedPosition = this.gameObject.transform.position;
-        playerPreferedPosition.y = playerPreferedPosition.y - 0.3f;
-        distanceMouseToPlayer = Vector2.Distance(playerPreferedPosition, mousePos);
 
+        itemData = gameObject.GetComponent<ItemData>();
+        hoverItemCanvasGameObject.SetActive(false);
 
-        swipeableIconLocation.Set(mousePos.x - 0.2f, mousePos.y + 0.3f);
-        usedGameobject.transform.position = swipeableIconLocation;
-
-        // If we are inside sweeping radius
-        if (distanceMouseToPlayer < allowedSweepingDistance && isInRadius == false)
-        {
-            print("in IF gang");
-            EnableSwipeIcon();
-            playerSweeping.SetIsInsideSweepingRadius(true);
-            isInRadius = true;
-
-        }
-        else if(distanceMouseToPlayer > allowedSweepingDistance && isInRadius == true) // If we are Outside sweeping radius
-        {
-            print("in else gang");
-            DisableSwipeIcon();
-            playerSweeping.StopSweepingAnimation();
-            playerSweeping.SetIsInsideSweepingRadius(false);
-
-            isInRadius = false;
-        }
-    }
-
-    public void DisableSwipeIcon()
-    {
-        usedGameobject.SetActive(false);
-    }
-
-    public void EnableSwipeIcon()
-    {
-        usedGameobject.SetActive(true);
-    }
-
-    public bool IsDistanceBetweenPlayerAndMouseTooLarge()
-    {
-        if(distanceMouseToPlayer > allowedSweepingDistance) { return true; }
-        else { return false; }     
-    }
+        //print(itemText);
         
+
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        print("TEEEST 2");
+        print("we are inside item HOVER");
+        hoverItemCanvasGameObject.SetActive(true);
+        gameObject.transform.SetParent(canvas.transform, true);
+        if(itemData.itemType == ItemData.ItemType.Weapon)
+        {
+            itemText.text = $"{itemData.itemName}\n\nDamage: {itemData.damage}\nValue: {itemData.value}\n\n{itemData.description}";
+
+        }
+        else if(itemData.itemType == ItemData.ItemType.Armor)
+        {
+            itemText.text = $"{itemData.itemName}\nArmor: {itemData.armor}\nValue: {itemData.value}\n\n{itemData.description}";
+
+        }
+        //print(itemData);
+
+
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+
+        print("we are exiting item HOVER");
+        hoverItemCanvasGameObject.SetActive(false);
+        gameObject.transform.SetParent(originalParent, true);
+ 
+
+    }
 }
+
+
+
+
+
+
+
+
+

@@ -21,6 +21,9 @@ TagManager:
   - Tile
   - Dirty_Tile
   - Sweep
+  - WavesManager
+  - EnemySpawner
+  - DraggableItem
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class FootstepAudioSwitcher : MonoBehaviour
     {
         if(collision.gameObject.tag == "Tile")
         {
-            audioManager.SwitchSoundType(collision.name);
+            //audioManager.SwitchSoundType(collision.name);
         }
     }
 }
