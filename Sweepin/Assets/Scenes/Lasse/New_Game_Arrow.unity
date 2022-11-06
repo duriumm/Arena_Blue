@@ -69671,7 +69671,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: DraggableItem
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9142468819512293646, guid: ad772271505bf4d4ebe11d55003c51fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ad772271505bf4d4ebe11d55003c51fa, type: 3}
 --- !u!1 &1165134267
 GameObject:
@@ -69707,6 +69708,7 @@ MonoBehaviour:
   deathMenuGameObject: {fileID: 1113733625}
   allMenuesGameObject: {fileID: 1848255479}
   menuesList: []
+  playerInventory: {fileID: 0}
 --- !u!4 &1165134269
 Transform:
   m_ObjectHideFlags: 0
@@ -69877,8 +69879,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deb599e554fa084d9620203de21df57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggableInventoryItemPrefabToAdd: {fileID: 0}
+  isInventoryOpen: 0
   backPackMenu: {fileID: 1402506773}
+  itemSlot: {fileID: 0}
+  equipItemSound: {fileID: 8300000, guid: 98a023ae10fcb394e81a6b431084876a, type: 3}
+  deEquipItemSound: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
 --- !u!4 &1239287095
 Transform:
   m_ObjectHideFlags: 0
@@ -71851,6 +71856,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1090159621867037657, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: audioClipToPlayOnDrop
+      value: 
+      objectReference: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
     - target: {fileID: 1506354513794444550, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -72079,6 +72088,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HotbarItemSlot 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1944489804592826912, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: audioClipToPlayOnDrop
+      value: 
+      objectReference: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
     - target: {fileID: 2195940118637039642, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -72287,6 +72300,10 @@ PrefabInstance:
       propertyPath: m_BlocksRaycasts
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4690481525314269295, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: audioClipToPlayOnDrop
+      value: 
+      objectReference: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
     - target: {fileID: 4740474434283520556, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -72295,6 +72312,10 @@ PrefabInstance:
       propertyPath: audioClipToPlayer
       value: 
       objectReference: {fileID: 8300000, guid: cc6dfa6c630d5444c9c19969a5d1a48e, type: 3}
+    - target: {fileID: 5435323912349015007, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: audioClipToPlayOnDrop
+      value: 
+      objectReference: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
     - target: {fileID: 5621102062566023412, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -72479,6 +72500,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8547505307601021886, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: audioClipToPlayOnDrop
+      value: 
+      objectReference: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
     - target: {fileID: 8553716395154078599, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -72503,6 +72528,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8628106159936113772, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
+      propertyPath: audioClipToPlayOnDrop
+      value: 
+      objectReference: {fileID: 8300000, guid: 089179522e92ad34b8fc5c5d831324f6, type: 3}
     - target: {fileID: 8765872436026796874, guid: e24c0efbe25886b4d9e32430dcb04a6e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

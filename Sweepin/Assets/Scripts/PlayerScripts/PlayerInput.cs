@@ -50,7 +50,16 @@ public class PlayerInput : MonoBehaviour
         // checks if mousbuttonLEFT is pressed
         if (Input.GetMouseButtonDown(1))
         {
-            playerBowAttack.ChargeBow();
+            if(playerInventory.isInventoryOpen == true)
+            {
+                // TODO: Equip item/ use item
+                print("inventory open");
+            }
+            else
+            {
+
+                playerBowAttack.ChargeBow();
+            }
         }
         // checks if mousbuttonRIGHT is pressed
         if (Input.GetMouseButtonDown(0))
@@ -103,7 +112,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            playerInventory.AddItemToInventory();
+            //playerInventory.AddItemToInventory();
             //enemySpawner.StopEnemySpawning();
             //print("STOPPED enemy spawning");
         }

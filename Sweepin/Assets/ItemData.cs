@@ -11,6 +11,7 @@ public class ItemData : MonoBehaviour
     public int value;
     public int armor;
     public int speed;
+    public bool isEquipped;
     public enum ItemType
     {
         Weapon,
@@ -20,7 +21,8 @@ public class ItemData : MonoBehaviour
         Ring,
         Amulet,
         Ranged,
-        Boots
+        Boots,
+        Usable
     }
     public ItemType itemType;
 }

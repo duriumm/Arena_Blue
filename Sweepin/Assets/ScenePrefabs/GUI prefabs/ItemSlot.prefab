@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dec2c0cb317bbd4f96df62198c65d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClipToPlayOnDrop: {fileID: 0}
+  itemSlotType: 0
+  equipmentSlotItemType: 0
 --- !u!95 &7247306205448204550
 Animator:
   serializedVersion: 3
@@ -102,7 +105,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dd387f5338ef95b499131edbeab54533, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

@@ -10,10 +10,12 @@ public class GuiManager : MonoBehaviour
     public GameObject deathMenuGameObject;
     public GameObject allMenuesGameObject; // Holds all menues
     public List<string> menuesList = new List<string>(){};
+    public PlayerInventory playerInventory;
 
     private void Start()
     {
         PopulateMenuList();
+        playerInventory = GameObject.Find("InventoryManager").GetComponent<PlayerInventory>();
 
     }
 
@@ -25,7 +27,7 @@ public class GuiManager : MonoBehaviour
     public void ToggleMenu(string menuToEnable)
     {
         Time.timeScale = 0;
-
+        playerInventory.isInventoryOpen = true;
         GameObject menuToEnableGameObject = allMenuesGameObject.transform.Find(menuToEnable).gameObject;
 
         if(menuToEnableGameObject.activeSelf == true)
@@ -42,6 +44,7 @@ public class GuiManager : MonoBehaviour
                 }
             }
             Time.timeScale = 1;
+            playerInventory.isInventoryOpen = false;
             return;
         }
 
