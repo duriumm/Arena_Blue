@@ -1,1 +1,1 @@
-This is a game about sweeping stuff up with your broom :)
+This is a game about killing stuff
