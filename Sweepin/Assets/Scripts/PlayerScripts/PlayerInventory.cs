@@ -11,8 +11,6 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private int amountOfInventorySlots;
-    //public GameObject draggableInventoryItemPrefabToAdd;
-
     public bool isInventoryOpen = false;
     // "List" is transform of backpack menu
     public Transform backPackMenu;
@@ -31,17 +29,8 @@ public class PlayerInventory : MonoBehaviour
         playerStats = GameObject.Find("MyCharacter").GetComponent<PlayerStats>();
         equipmentMenuGameObject = GameObject.Find("EquipmentMenu").gameObject;
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
-
-
-
-        //print(amountOfInventorySlots);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     // Get items from the scenes backpack menu.
     public void GetInventoryItemsFromInventoryMenu()
@@ -60,54 +49,115 @@ public class PlayerInventory : MonoBehaviour
 
     // Add a prefab item of the "draggable item" prefab and change its data to add it
     // Adds one item to the inventory
-    public void AddItemToInventory(GameObject itemToAdd)
+    public void AddItemToInventory(GameObject itemToAdd, int itemSlotNumber = 100, bool isItemFromEquippedItems = false)
     {
 
-        print("addding to inventory");
+        //print("addding to inventory");
         int index = 0;
         foreach (Transform itemSlotTransform in backPackMenu)
         {
-            if (itemSlotTransform.childCount == 0)
+            if (index == itemSlotNumber)
             {
-                audioManager.PlayGUISoundEffect(deEquipItemSound, audioManager.soundEffectsSource);
-                itemToAdd.GetComponent<ItemData>().isEquipped = false;
-                itemToAdd.GetComponent<RectTransform>().position = itemSlotTransform.GetComponent<RectTransform>().position;
-                itemToAdd.transform.parent = itemSlotTransform;
-                itemToAdd.GetComponent<MouseHovering>().originalParent = itemSlotTransform;
-                itemToAdd.transform.localScale = new Vector2(1, 1);
-                playerStats.CalculateAllEquipmentSlotsAndAddData();
+                print($"Adding item to invetory on itemslot number: {itemSlotNumber}");
+                AddItem(itemToAdd, itemSlotTransform, false, deEquipItemSound);
+                return;
+            }
+            else if(isItemFromEquippedItems && itemSlotTransform.childCount == 0)
+            {
+                print($"FROM EQUIPPED !! Adding item to invetory on itemslot number: {itemSlotNumber}");
+                AddItem(itemToAdd, itemSlotTransform, false, deEquipItemSound);
                 return;
             }
             index++;
         }
     }
 
+    // Function which is reused both for equipping items FROM inventory and adding equipped items TO inventory
+    // Therefor we reuse it here
+    private void AddItem(GameObject itemToAdd, Transform itemSlotTransformForItemToAdd, bool shouldItemBeEquipped, AudioClip inventoryUseItemSound)
+    {
+        audioManager.PlayGUISoundEffect(inventoryUseItemSound, audioManager.soundEffectsSource);
+        itemToAdd.GetComponent<ItemData>().isEquipped = shouldItemBeEquipped;
+        itemToAdd.GetComponent<RectTransform>().position = itemSlotTransformForItemToAdd.GetComponent<RectTransform>().position;
+        itemToAdd.transform.parent = itemSlotTransformForItemToAdd;
+        itemToAdd.GetComponent<MouseHovering>().originalParent = itemSlotTransformForItemToAdd;
+        itemToAdd.transform.localScale = new Vector2(1, 1);
+        playerStats.CalculateAllEquipmentSlotsAndAddData();
+    }
 
-    // TODO: Refactor equip and deequip into one function since they work similarly
+
     public void EquipItemFromInventory(GameObject itemGameObjectToEquip)
     {
         // Equip item at correct equipmentslot based on itemtype
-        foreach (Transform equipmentSlot in equipmentMenuGameObject.transform)
+        foreach (Transform equipmentSlotTransform in equipmentMenuGameObject.transform)
         {
-            // Using enum index here since equipmentSlotItemType and itemType is the same
-            if ((int)itemGameObjectToEquip.GetComponent<ItemData>().itemType == (int)equipmentSlot.GetComponent<ItemSlot>().equipmentSlotItemType)
+            // Using enum index here since equipmentSlotItemType and itemType is the same (Check if item type is same)
+            if ((int)itemGameObjectToEquip.GetComponent<ItemData>().itemType == (int)equipmentSlotTransform.GetComponent<ItemSlot>().equipmentSlotItemType)
             {
-                audioManager.PlayGUISoundEffect(equipItemSound, audioManager.soundEffectsSource);
-                itemGameObjectToEquip.GetComponent<ItemData>().isEquipped = true;
-                itemGameObjectToEquip.GetComponent<RectTransform>().position = equipmentSlot.GetComponent<RectTransform>().position;
-                itemGameObjectToEquip.transform.parent = equipmentSlot;
-                itemGameObjectToEquip.GetComponent<MouseHovering>().originalParent = equipmentSlot;
-                itemGameObjectToEquip.transform.localScale = new Vector2(1, 1);
-                playerStats.CalculateAllEquipmentSlotsAndAddData();
+                // If we already have an item equipped we switch between them
+                if (equipmentSlotTransform.childCount > 0)
+                {
+                    AddItemToInventory(equipmentSlotTransform.GetChild(0).gameObject, isItemFromEquippedItems: true); 
+                }
+                AddItem(itemGameObjectToEquip, equipmentSlotTransform, true, equipItemSound);
+                return;
             }
         }
     }
 
-    public void RemoveIntemFromInventory(GameObject itemToRemove)
+    public void DestroyItemFromInventory(GameObject itemToRemove)
     {
         if(itemToRemove.tag == "DraggableItem")
         {
             Destroy(itemToRemove);
+        }
+    }
+
+    public void DisableAllInventoryItemsRaycastWhenDraggingItem()
+    {
+        // Raycast target till OFF för ALLT i inventory och equipment menu
+
+        foreach (Transform equipmentItemSlot in equipmentMenuGameObject.transform)
+        {
+            if (equipmentItemSlot.childCount > 0)
+            {
+                //print($"PRÄÄÄÄÄÄÄNT equipmentItemSlot child in equipment: {equipmentItemSlot.GetChild(0)}");
+                var equipmentSlotCanvasGroup = equipmentItemSlot.GetChild(0).GetComponent<CanvasGroup>();
+                equipmentSlotCanvasGroup.blocksRaycasts = false;
+
+            }
+        }
+        foreach (Transform itemSlotTransform in backPackMenu)
+        {
+            if (itemSlotTransform.childCount > 0)
+            {
+                var inventorySlotCanvasGroup = itemSlotTransform.GetChild(0).GetComponent<CanvasGroup>();
+                inventorySlotCanvasGroup.blocksRaycasts = false;
+            }
+        }
+    }
+
+    public void EnableAllInventoryItemsRaycastWhenDraggingItem()
+    {
+        // Raycast target till OFF för ALLT i inventory och equipment menu
+
+        foreach (Transform equipmentItemSlot in equipmentMenuGameObject.transform)
+        {
+            if (equipmentItemSlot.childCount > 0)
+            {
+                //print($"PRÄÄÄÄÄÄÄNT equipmentItemSlot child in equipment: {equipmentItemSlot.GetChild(0)}");
+                var equipmentSlotCanvasGroup = equipmentItemSlot.GetChild(0).GetComponent<CanvasGroup>();
+                equipmentSlotCanvasGroup.blocksRaycasts = true;
+
+            }
+        }
+        foreach (Transform itemSlotTransform in backPackMenu)
+        {
+            if (itemSlotTransform.childCount > 0)
+            {
+                var inventorySlotCanvasGroup = itemSlotTransform.GetChild(0).GetComponent<CanvasGroup>();
+                inventorySlotCanvasGroup.blocksRaycasts = true;
+            }
         }
     }
 }

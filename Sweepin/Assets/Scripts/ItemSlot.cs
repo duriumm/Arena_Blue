@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     private AudioManager audioManager;
     public AudioClip audioClipToPlayOnDrop;
     private PlayerStats playerStats;
+    public PlayerInventory playerInventory;
+    private int itemSlotNumber;
     public enum ItemSlotType
     {
         BackpackSlot,
@@ -38,63 +41,71 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     {
         audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         playerStats = GameObject.Find("MyCharacter").GetComponent<PlayerStats>();
+        playerInventory = GameObject.Find("InventoryManager").GetComponent<PlayerInventory>();
+        // Assign and print the itemslot number for every itemslot for backpack :) 
+        itemSlotNumber = int.Parse(gameObject.name.Split(' ')[1]);
+        if(itemSlotType == ItemSlotType.BackpackSlot)
+        {
+            print($"Gameobject: {gameObject} -- item slot number: {itemSlotNumber}");
+        }
+
     }
 
     // What happens when we drop something in this Item slot
     public void OnDrop(PointerEventData eventData)
     {
-        // Delete item when dropped in garbage slot
-        if(itemSlotType == ItemSlotType.GarbageSlot)
-        {
-            audioManager.PlayGUISoundEffect(audioClipToPlayOnDrop, audioManager.soundEffectsSource);
-            Destroy(eventData.pointerDrag);
-        }
-        // Return item to previous slot if equipmentslot type does not match items type
-        else if (itemSlotType == ItemSlotType.EquipmentSlot)
-        {
-            var draggableItemsData = eventData.pointerDrag.GetComponent<ItemData>();
-            if((int)equipmentSlotItemType != (int)draggableItemsData.itemType)
-            {
-                return;
-            }
-        }
+
+        var droppedGameObject = eventData.pointerDrag;
+        var draggableItemsData = droppedGameObject.GetComponent<ItemData>();
+
         // Equip item with drag n drop
-        if (eventData.pointerDrag != null && eventData.pointerDrag.tag == "DraggableItem")
+        if (droppedGameObject != null && droppedGameObject.tag == "DraggableItem")
         {
-            if (itemSlotType == ItemSlotType.EquipmentSlot)
+            // Our item slot type is Garbage 
+            if (itemSlotType == ItemSlotType.GarbageSlot)
             {
-                eventData.pointerDrag.GetComponent<ItemData>().isEquipped = true;
+                print("Dropping item in garbage");
+                audioManager.PlayGUISoundEffect(audioClipToPlayOnDrop, audioManager.soundEffectsSource);
+                playerInventory.DestroyItemFromInventory(droppedGameObject);
             }
-            else
+            // Our itemslot type is Equipment 
+            else if (itemSlotType == ItemSlotType.EquipmentSlot)
             {
-                eventData.pointerDrag.GetComponent<ItemData>().isEquipped = false;
+                print("Dropping item in equipment slot");
+                // Trying to drop equipment in slot which does not match item type will exit the code
+                if ((int)equipmentSlotItemType != (int)draggableItemsData.itemType)
+                {
+                    return;
+                }
+
+                droppedGameObject.GetComponent<ItemData>().isEquipped = true;
+
+                // If this itemslot already has an item equipped we want to move the equipped item to the inventory
+                if (gameObject.transform.childCount > 0)
+                {
+                    var originalParentsItemSlotNumber = droppedGameObject.GetComponent<MouseHovering>().originalParent.GetComponent<ItemSlot>().itemSlotNumber;
+                    GameObject equippedGameObject = gameObject.transform.GetChild(0).gameObject;
+                    playerInventory.AddItemToInventory(equippedGameObject, originalParentsItemSlotNumber);
+                }
+                playerInventory.EquipItemFromInventory(droppedGameObject);
+                playerStats.CalculateAllEquipmentSlotsAndAddData();
 
             }
-            audioManager.PlayGUISoundEffect(audioClipToPlayOnDrop, audioManager.soundEffectsSource);
-            eventData.pointerDrag.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
-            eventData.pointerDrag.transform.parent = gameObject.transform;
-            eventData.pointerDrag.GetComponent<MouseHovering>().originalParent = eventData.pointerDrag.transform.parent;
-            eventData.pointerDrag.transform.localScale = new Vector2(1, 1);
+            else if(itemSlotType == ItemSlotType.BackpackSlot)
+            {
+                print("Dropping item in inventory");
+                droppedGameObject.GetComponent<ItemData>().isEquipped = false;
 
-            // Whenever we drop a item in a slot we want to calculate the equipment data 
-            // since we can drop equipment in our backpack slot
-            playerStats.CalculateAllEquipmentSlotsAndAddData();
+                // If this itemslot already has an item equipped we want to move the equipped item to the inventory
+                if (gameObject.transform.childCount > 0)
+                {
+                    var originalParentsItemSlotNumber = droppedGameObject.GetComponent<MouseHovering>().originalParent.GetComponent<ItemSlot>().itemSlotNumber;
+                    GameObject invSlotGameObject = gameObject.transform.GetChild(0).gameObject;
+                    playerInventory.AddItemToInventory(invSlotGameObject, originalParentsItemSlotNumber);
+                }
 
-            
-
+                playerInventory.AddItemToInventory(droppedGameObject, itemSlotNumber);
+            }
         }
     }
-    //public void OnBeginDrag(PointerEventData eventData)
-    //{
-        
-    //    var draggableItemsData = eventData.pointerDrag.GetComponent<ItemData>();
-    //    print(eventData.pointerDrag);
-    //    if (itemSlotType == ItemSlotType.EquipmentSlot)
-    //    {
-    //        playerStats.DecreaseStats("damage", draggableItemsData.damage);
-    //        playerStats.DecreaseStats("armor", draggableItemsData.armor);
-    //        playerStats.DecreaseStats("speed", draggableItemsData.speed);
-    //    }
-    //}
-
 }

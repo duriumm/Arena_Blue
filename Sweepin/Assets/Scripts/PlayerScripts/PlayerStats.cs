@@ -35,9 +35,9 @@ public class PlayerStats : MonoBehaviour
         armorValueText = GameObject.Find("ArmorValue").GetComponent<TextMeshProUGUI>();
         equipmentMenuGameObject = GameObject.Find("EquipmentMenu").gameObject;
 
-        print(playerStats["damage"]);
+        //print(playerStats["damage"]);
         IncreaseStats("speed", 10);
-        print(playerStats["damage"]);
+        //print(playerStats["damage"]);
         UpdateAllStatsText();
 
         CalculateAllEquipmentSlotsAndAddData();
@@ -72,7 +72,7 @@ public class PlayerStats : MonoBehaviour
         {
             if(equipmentSlot.childCount > 0)
             {
-                print($"Itemdata from equipment slot is: {equipmentSlot.GetComponentInChildren<ItemData>().damage}");
+                //print($"Itemdata from equipment slot is: {equipmentSlot.GetComponentInChildren<ItemData>().damage}");
                 var itemDataToAdd = equipmentSlot.GetComponentInChildren<ItemData>();
                 IncreaseStats("damage", itemDataToAdd.damage);
                 IncreaseStats("speed", itemDataToAdd.speed);

@@ -35,11 +35,11 @@ public class MouseHovering : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("TEEEST 2");
-        print("we are inside item HOVER");
         hoverItemCanvasGameObject.SetActive(true);
         gameObject.transform.SetParent(canvas.transform, true);
-        if(itemData.itemType == ItemData.ItemType.Weapon)
+        print($"This items original parent is: {originalParent}!");
+
+        if (itemData.itemType == ItemData.ItemType.Weapon)
         {
             itemText.text = $"{itemData.itemName}\n\nDamage: {itemData.damage}\nValue: {itemData.value}\n\n{itemData.description}";
 
@@ -56,7 +56,7 @@ public class MouseHovering : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerExit(PointerEventData eventData)
     {
 
-        print("we are exiting item HOVER");
+       // print("we are exiting item HOVER");
         hoverItemCanvasGameObject.SetActive(false);
         gameObject.transform.SetParent(originalParent, true);
  
